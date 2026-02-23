@@ -1,0 +1,127 @@
+:root{
+  font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+  padding: 16px;
+}
+.dev-env{
+  display:none;
+}
+html,body,#root{
+  height:100%;
+}
+*,*::before,*::after{box-sizing:border-box}
+.app{
+  width:100%;
+  margin:0;
+  padding:16px;
+  display:flex;
+  flex-direction:column;
+}
+.content{
+  display:flex;
+  gap:20px;
+  align-items:flex-start;
+  justify-content:center;
+  flex:1;
+  overflow:hidden;
+}
+.table-column{
+  flex:0 0 25%;
+  min-width:0;
+  display:flex;
+  flex-direction:column;
+  max-height:100%;
+  overflow:hidden;
+  min-height:0;
+}
+.table-column h2{
+  margin:0 0 12px 0;
+}
+.table-column .table-scroll{
+  /* make the scroll wrapper take remaining column height */
+  flex:1;
+  min-height:0;
+  max-height:75vh;
+  overflow-y:scroll;
+  display:flex;
+  flex-direction:column;
+}
+.table-scroll .items-table{ /* ensure table fits the scroll container */
+  width:100%;
+  display:table;
+}
+.sidebar-total{
+  flex:0 0 25%;
+  margin-top:44px;
+  position:static;
+  align-self:flex-start;
+  background:#fff;
+  border:1px solid #ddd;
+  padding:12px;
+  border-radius:6px;
+  box-shadow:0 6px 18px rgba(0,0,0,0.06);
+  text-align:center;
+}
+.sidebar-total .total{
+  font-size:14px;
+  color:#555;
+  margin-bottom:8px;
+}
+.sidebar-total .total-amount{
+  font-size:22px;
+  font-weight:700;
+}
+.items-table{
+  width:100%;
+  border-collapse:collapse;
+  margin-top:12px;
+}
+.items-table th, .items-table td{
+  border:1px solid #ddd;
+  padding:8px 12px;
+  text-align:left;
+}
+.items-table th{
+  background:#f5f5f5;
+}
+.items-table .category-row{
+  background:#e8e8e8;
+  font-weight:600;
+}
+.items-table .category-row td{
+  padding:10px 12px;
+  border-bottom:2px solid #999;
+}
+.total{
+  margin-top:12px;
+  font-weight:600;
+}
+
+/* Radio group outline */
+.radio-group-item td{
+  background:transparent;
+  border-left:1px solid #bbb;
+  border-right:1px solid #bbb;
+}
+.radio-group-item.first td{
+  border-top:1px solid #bbb;
+  border-top-left-radius:6px;
+  border-top-right-radius:6px;
+}
+.radio-group-item.last td{
+  border-bottom:1px solid #bbb;
+  border-bottom-left-radius:6px;
+  border-bottom-right-radius:6px;
+}
+
+.qty-input{
+  width:60px;
+  padding:4px;
+  border:1px solid #ddd;
+  border-radius:3px;
+}
+
+@media (max-width:700px){
+  .content{flex-direction:column}
+  .sidebar-total{position:static;width:100%;margin-top:12px}
+  .table-wrap{flex-direction:column}
+}
