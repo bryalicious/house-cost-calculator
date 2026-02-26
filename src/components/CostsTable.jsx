@@ -82,8 +82,7 @@ export default function CostsTable({ items, selected, onToggle, multipleQuantiti
                     >
                       <td>
                         <input
-                          type="radio"
-                          name={`${tableId}-${grp}`}
+                          type="checkbox"
                           checked={selected.has(opt.index)}
                           onChange={() => onToggle(tableId, opt.index, { type: 'radio', group: grp })}
                           disabled={opt.price === null}
@@ -113,8 +112,7 @@ export default function CostsTable({ items, selected, onToggle, multipleQuantiti
                         />
                       ) : current.type === 'radio' ? (
                         <input
-                          type="radio"
-                          name={`${tableId}-${current.group || `radio-${cat}-${current.index}`}`}
+                          type="checkbox"
                           checked={selected.has(current.index)}
                           onChange={() => onToggle(tableId, current.index, { type: 'radio', group: current.group })}
                           disabled={current.price === null}

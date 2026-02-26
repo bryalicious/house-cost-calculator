@@ -27,23 +27,36 @@ export default function App() {
   const tables = { a: upgradesData };
 
   const toggle = (tableId, index, meta = {}) => {
-    const newSelected = { a: new Set(selected.a) };
+    let newSelectedAArray = Array.from(selected.a);
 
     if (meta.type === 'radio') {
       const group = meta.group;
-      if (group) {
-        tables[tableId].forEach((it, i) => {
-          if (i !== index && it.group === group && it.type === 'radio')
-            newSelected[tableId].delete(i);
-        });
+      const itemIndex = newSelectedAArray.indexOf(index);
+
+      if (itemIndex > -1) {
+        newSelectedAArray.splice(itemIndex, 1);
+      } else {
+        if (group) {
+          const groupItemsToRemove = [];
+          tables[tableId].forEach((it, i) => {
+            if (i !== index && it.group === group && it.type === 'radio') {
+              groupItemsToRemove.push(i);
+            }
+          });
+          newSelectedAArray = newSelectedAArray.filter(i => !groupItemsToRemove.includes(i));
+        }
+        newSelectedAArray.push(index);
       }
-      newSelected[tableId].add(index);
     } else {
-      if (newSelected[tableId].has(index)) newSelected[tableId].delete(index);
-      else newSelected[tableId].add(index);
+      const itemIndex = newSelectedAArray.indexOf(index);
+      if (itemIndex > -1) {
+        newSelectedAArray.splice(itemIndex, 1);
+      } else {
+        newSelectedAArray.push(index);
+      }
     }
 
-    setSelections({ ...currentHouse.selections, selected: newSelected });
+    setSelections({ ...currentHouse.selections, selected: { a: new Set(newSelectedAArray) } });
   };
 
   const handleFixedChange = (index, newCost) => {
