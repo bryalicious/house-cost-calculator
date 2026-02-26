@@ -1,18 +1,18 @@
 const fixedCosts = [{
     "item": "Deposit",
-    "price": 54000,
+    "price": 0,
 }, {
     "item": "LBTT",
-    "price": 3100,
+    "price": 0,
 }, {
     "item": "ADS",
-    "price": 21600,
+    "price": 0,
 },{
     "item": "Solicitor Fees",
     "price": 1750,
 },{
     "item": "Mortgage",
-    "price": 216000,
+    "price": 0,
 }]
 
 export default fixedCosts
