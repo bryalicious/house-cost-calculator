@@ -28,7 +28,7 @@ html,body,#root{
   display:flex;
   flex-direction:column;
   max-height:100%;
-  overflow:scroll;
+  overflow:auto;
   min-height:0;
   width:100%;
 }

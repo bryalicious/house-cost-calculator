@@ -17,6 +17,8 @@ export default function App() {
     removeFixedCost,
     updateFixedCost,
     clearSelections,
+    duplicateHouse,
+    renameHouse,
   } = useHouseContext();
 
   if (!currentHouse) {
@@ -120,7 +122,15 @@ export default function App() {
             </option>
           ))}
         </select>
+        <input
+          type="text"
+          value={currentHouse.name}
+          onChange={(e) => renameHouse(e.target.value)}
+          placeholder="House name"
+          className="house-name-input"
+        />
         <button onClick={createNewHouse}>New House</button>
+        <button onClick={duplicateHouse}>Duplicate House</button>
         <button onClick={clearSelections}>Clear Selections</button>
       </div>
       <div className="content">

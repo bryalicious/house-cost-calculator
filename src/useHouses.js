@@ -87,6 +87,30 @@ export function useHouses() {
     setSelections(initializeState());
   };
 
+  const duplicateHouse = () => {
+    const copiedSelections = {
+      selected: { a: new Set(Array.from(currentHouse.selections.selected.a)) },
+      multipleQuantities: { ...currentHouse.selections.multipleQuantities },
+      fixedCosts: currentHouse.selections.fixedCosts.map(cost => ({ ...cost })),
+    };
+
+    const duplicate = {
+      name: `${currentHouse.name} Copy`,
+      selections: copiedSelections,
+    };
+
+    setHouses([...houses, duplicate]);
+    setCurrentHouseIndex(houses.length);
+  };
+
+  const renameHouse = (name) => {
+    const newHouses = [...houses];
+    newHouses[currentHouseIndex] = {
+      ...newHouses[currentHouseIndex],
+      name,
+    };
+    setHouses(newHouses);
+  };
 
   return {
     houses,
@@ -99,5 +123,7 @@ export function useHouses() {
     removeFixedCost,
     updateFixedCost,
     clearSelections,
+    duplicateHouse,
+    renameHouse,
   };
 }
