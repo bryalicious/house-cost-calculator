@@ -16,6 +16,7 @@ export default function App() {
     addFixedCost,
     removeFixedCost,
     updateFixedCost,
+    clearSelections,
   } = useHouseContext();
 
   if (!currentHouse) {
@@ -120,6 +121,7 @@ export default function App() {
           ))}
         </select>
         <button onClick={createNewHouse}>New House</button>
+        <button onClick={clearSelections}>Clear Selections</button>
       </div>
       <div className="content">
         <div className="table-column">

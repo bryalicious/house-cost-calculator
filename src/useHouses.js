@@ -83,6 +83,10 @@ export function useHouses() {
     setSelections({ ...currentHouse.selections, fixedCosts: newFixedCosts });
   };
 
+  const clearSelections = () => {
+    setSelections(initializeState());
+  };
+
 
   return {
     houses,
@@ -94,5 +98,6 @@ export function useHouses() {
     addFixedCost,
     removeFixedCost,
     updateFixedCost,
+    clearSelections,
   };
 }
