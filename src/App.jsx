@@ -21,6 +21,8 @@ export default function App() {
     renameHouse,
   } = useHouseContext();
 
+  const [isEditingName, setIsEditingName] = React.useState(false);
+
   if (!currentHouse) {
     return <div>Loading...</div>;
   }
@@ -111,9 +113,29 @@ export default function App() {
     return '£' + n.toLocaleString('en-GB', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
   }
 
+  const handleNameKeyDown = (e) => {
+    if (e.key === 'Enter') {
+      setIsEditingName(false);
+    }
+  };
+
   return (
     <div className="app">
-      <h1>House Cost</h1>
+      {isEditingName ? (
+        <input
+          autoFocus
+          className="house-name-input"
+          type="text"
+          value={currentHouse.name}
+          onChange={(e) => renameHouse(e.target.value)}
+          onKeyDown={handleNameKeyDown}
+          onBlur={() => setIsEditingName(false)}
+        />
+      ) : (
+        <h1 className="editable-heading" onClick={() => setIsEditingName(true)}>
+          {currentHouse.name}
+        </h1>
+      )}
       <div className="toolbar">
         <select onChange={(e) => selectHouse(e.target.value)} value={currentHouseIndex}>
           {houses.map((house, index) => (
@@ -122,13 +144,6 @@ export default function App() {
             </option>
           ))}
         </select>
-        <input
-          type="text"
-          value={currentHouse.name}
-          onChange={(e) => renameHouse(e.target.value)}
-          placeholder="House name"
-          className="house-name-input"
-        />
         <button onClick={createNewHouse}>New House</button>
         <button onClick={duplicateHouse}>Duplicate House</button>
         <button onClick={clearSelections}>Clear Selections</button>

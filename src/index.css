@@ -119,6 +119,20 @@ html,body,#root{
   border-radius:3px;
 }
 
+.house-name-input{
+  font-size:2rem;
+  font-weight:700;
+  padding:6px 10px;
+  border:1px solid #ccc;
+  border-radius:6px;
+  max-width:100%;
+}
+
+.editable-heading{
+  margin:0 0 12px 0;
+  cursor:pointer;
+}
+
 .item-input{
   min-width:120px;
   padding:4px;
