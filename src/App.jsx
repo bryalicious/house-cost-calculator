@@ -105,7 +105,7 @@ export default function App() {
       </div>
       <div className="content">
         <div className="table-column">
-          <h2>Fixed Costs</h2>
+          <h2>Other Costs</h2>
           <FixedCostsTable
             items={fixedCosts}
             onChange={handleFixedChange}
@@ -114,7 +114,7 @@ export default function App() {
           />
         </div>
         <div className="table-column">
-          <h2>Upgrades</h2>
+          <h2>Upgrade costs</h2>
           <CostsTable
             items={upgradesData}
             selected={selected.a}

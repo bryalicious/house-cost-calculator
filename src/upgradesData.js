@@ -527,84 +527,72 @@ const items = [
     "price": 150,
     "category": "Flooring",
     "type": TYPES.RADIO,
-    "group": "Bathroom Flooring"
   },
   {
     "item": "Bronze Selection - Vinyl",
     "price": 1083,
     "category": "Flooring",
     "type": TYPES.RADIO,
-    "group": "Other Flooring"
   },
   {
     "item": "Bronze Selection - Carpets (1)",
     "price": 1889,
     "category": "Flooring",
     "type": TYPES.RADIO,
-    "group": "Other Flooring"
   },
   {
     "item": "Bronze Living Room Selection",
     "price": null,
     "category": "Flooring",
     "type": TYPES.RADIO,
-    "group": "Living Room Flooring"
   },
   {
     "item": "Silver Selection - LVT (Bathrooms)",
     "price": 483,
     "category": "Flooring",
     "type": TYPES.RADIO,
-    "group": "Bathroom Flooring"
   },
   {
     "item": "Silver Selection - LVT",
     "price": 2593,
     "category": "Flooring",
     "type": TYPES.RADIO,
-    "group": "Other Flooring"
   },
   {
     "item": "Silver Selection - Carpets (1)",
     "price": 2218,
     "category": "Flooring",
     "type": TYPES.RADIO,
-    "group": "Other Flooring"
   },
   {
     "item": "Silver Selection - LVT Upgrade to Living Room",
     "price": 977,
     "category": "Flooring",
     "type": TYPES.RADIO,
-    "group": "Living Room Flooring"
   },
   {
     "item": "Gold Selection - LVT (Bathrooms)",
     "price": 647,
     "category": "Flooring",
     "type": TYPES.RADIO,
-    "group": "Bathroom Flooring"
   },
   {
     "item": "Gold Selection - LVT",
     "price": 3571,
     "category": "Flooring",
     "type": TYPES.RADIO,
-    "group": "Other Flooring"
   },
   {
     "item": "Gold Selection - Carpets (1)",
     "price": 2444,
     "category": "Flooring",
     "type": TYPES.RADIO,
-    "group": "Other Flooring"
   },
   {
     "item": "Gold Selection - LVT Upgrade to Living Room",
     "price": 1352,
     "category": "Flooring",
     "type": TYPES.RADIO,
-    "group": "Living Room Flooring"
   },
   {
     "item": "Turf to Rear Gardens",
