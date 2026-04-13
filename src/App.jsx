@@ -29,6 +29,24 @@ export default function App() {
   const toggle = (tableId, index, meta = {}) => {
     let newSelectedAArray = Array.from(selected.a);
 
+    const item = tables[tableId][index];
+    const isSelecting = !selected.a.has(index);
+
+    if (isSelecting) {
+      // Check if this item excludes others
+      if (item.excludes) {
+        item.excludes.forEach(excludedItemName => {
+          const excludedIndex = tables[tableId].findIndex(it => it.item === excludedItemName);
+          if (excludedIndex > -1) {
+            const idx = newSelectedAArray.indexOf(excludedIndex);
+            if (idx > -1) {
+              newSelectedAArray.splice(idx, 1);
+            }
+          }
+        });
+      }
+    }
+
     if (meta.type === 'radio') {
       const group = meta.group;
       const itemIndex = newSelectedAArray.indexOf(index);

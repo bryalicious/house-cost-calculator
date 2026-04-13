@@ -29,6 +29,19 @@ export default function CostsTable({ items, selected, onToggle, multipleQuantiti
 
   const categories = Object.keys(grouped).sort()
 
+  // Check if an item is disabled due to exclusions
+  const isDisabled = (itemIndex) => {
+    const item = items[itemIndex]
+    if (item.price === null) return true
+    for (const selIndex of selected) {
+      const selItem = items[selIndex]
+      if (selItem.excludes && selItem.excludes.includes(item.item)) {
+        return true
+      }
+    }
+    return false
+  }
+
   return (
     <div className="table-scroll">
       <table className="items-table">
@@ -85,7 +98,7 @@ export default function CostsTable({ items, selected, onToggle, multipleQuantiti
                           type="checkbox"
                           checked={selected.has(opt.index)}
                           onChange={() => onToggle(tableId, opt.index, { type: 'radio', group: grp })}
-                          disabled={opt.price === null}
+                          disabled={isDisabled(opt.index)}
                         />
                       </td>
                       <td>{opt.item}</td>
@@ -107,7 +120,7 @@ export default function CostsTable({ items, selected, onToggle, multipleQuantiti
                           step="1"
                           value={multipleQuantities?.[current.index] ?? 0}
                           onChange={(e) => onMultipleChange(tableId, current.index, e.target.value)}
-                          disabled={current.price === null}
+                          disabled={isDisabled(current.index)}
                           className="qty-input"
                         />
                       ) : current.type === 'radio' ? (
@@ -115,14 +128,14 @@ export default function CostsTable({ items, selected, onToggle, multipleQuantiti
                           type="checkbox"
                           checked={selected.has(current.index)}
                           onChange={() => onToggle(tableId, current.index, { type: 'radio', group: current.group })}
-                          disabled={current.price === null}
+                          disabled={isDisabled(current.index)}
                         />
                       ) : (
                         <input
                           type="checkbox"
                           checked={selected.has(current.index)}
                           onChange={() => onToggle(tableId, current.index, { type: current.type })}
-                          disabled={current.price === null}
+                          disabled={isDisabled(current.index)}
                         />
                       )}
                     </td>
