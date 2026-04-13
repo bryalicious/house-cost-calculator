@@ -319,14 +319,16 @@ const items = [
     "price": 453,
     "category": "Kitchen",
     "type": TYPES.RADIO,
-    "group": "Hob"
+    "group": "Hob",
+    "excludes": ["Double Oven - Built Under"],
   },
   {
     "item": "80cm 5 zone Induction Hob",
     "price": 1115,
     "category": "Kitchen",
     "type": TYPES.RADIO,
-    "group": "Hob"
+    "group": "Hob",
+    "excludes": ["Double Oven - Built Under"],
   },
   {
     "item": "Freestanding Washing Machine",
