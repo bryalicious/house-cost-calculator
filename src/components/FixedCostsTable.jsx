@@ -1,5 +1,3 @@
-import React from 'react';
-
 export default function FixedCostsTable({ items, onChange, onRemove, onAdd }) {
   const handleChange = (index, field, value) => {
     const newPrice = field === 'price' ? parseFloat(value) || 0 : value;

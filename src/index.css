@@ -12,7 +12,6 @@ html,body,#root{
 .app{
   width:100%;
   margin:0;
-  padding:16px;
   display:flex;
   flex-direction:column;
 }
@@ -22,7 +21,6 @@ html,body,#root{
   align-items:flex-start;
   justify-content:center;
   flex:1;
-  overflow:hidden;
 }
 .table-column{
   flex:0 0 25%;
@@ -30,8 +28,9 @@ html,body,#root{
   display:flex;
   flex-direction:column;
   max-height:100%;
-  overflow:hidden;
+  overflow:scroll;
   min-height:0;
+  width:100%;
 }
 .table-column h2{
   margin:0 0 12px 0;
@@ -42,11 +41,11 @@ html,body,#root{
   min-height:0;
   max-height:75vh;
   overflow-y:scroll;
+  overflow-x:auto;
   display:flex;
   flex-direction:column;
 }
 .table-scroll .items-table{ /* ensure table fits the scroll container */
-  width:100%;
   display:table;
 }
 .sidebar-total{
@@ -115,6 +114,20 @@ html,body,#root{
 
 .qty-input{
   width:60px;
+  padding:4px;
+  border:1px solid #ddd;
+  border-radius:3px;
+}
+
+.item-input{
+  min-width:120px;
+  padding:4px;
+  border:1px solid #ddd;
+  border-radius:3px;
+}
+
+.cost-input{
+  min-width:80px;
   padding:4px;
   border:1px solid #ddd;
   border-radius:3px;
