@@ -103,6 +103,28 @@ export function useHouses() {
     setCurrentHouseIndex(houses.length);
   };
 
+  const normalizeSelections = (rawSelections) => {
+    const base = initializeState();
+    const selections = {
+      ...base,
+      ...rawSelections,
+      multipleQuantities: { ...base.multipleQuantities, ...rawSelections?.multipleQuantities },
+      fixedCosts: Array.isArray(rawSelections?.fixedCosts) ? rawSelections.fixedCosts : base.fixedCosts,
+    };
+    selections.selected = {
+      a: new Set(Array.isArray(rawSelections?.selected?.a) ? rawSelections.selected.a : []),
+    };
+    return selections;
+  };
+
+  const importHouses = (imported) => {
+    const normalized = imported.map((house, idx) => ({
+      name: house.name || `House ${houses.length + idx + 1}`,
+      selections: normalizeSelections(house.selections || {}),
+    }));
+    setHouses((prev) => [...prev, ...normalized]);
+  };
+
   const renameHouse = (name) => {
     const newHouses = [...houses];
     newHouses[currentHouseIndex] = {
@@ -125,5 +147,6 @@ export function useHouses() {
     clearSelections,
     duplicateHouse,
     renameHouse,
+    importHouses,
   };
 }
