@@ -33,14 +33,14 @@ const items = [
     "item": "Downlights - White",
     "price": 107,
     "category": "Electrical Items",
-    "type": TYPES.RADIO,
+    "type": TYPES.MULTIPLE,
     "group": "Downlight"
   },
   {
     "item": "Downlights - Satin Chrome",
     "price": 107,
     "category": "Electrical Items",
-    "type": TYPES.RADIO,
+    "type": TYPES.MULTIPLE,
     "group": "Downlight"
   },
   {
